@@ -18,12 +18,13 @@ const images = [
   },
 ];
 
-images.forEach((elem) => {
-  gallery.insertAdjacentHTML(
-    "beforeend",
-    `<li><img src="${elem.url}" alt="${elem.alt}"/></li>`
-  );
-});
+gallery.insertAdjacentHTML(
+  "beforeend",
+  images.reduce((acc, elem) => {
+    acc += `<li><img src="${elem.url}" alt="${elem.alt}"/></li>`;
+    return acc;
+  }, "")
+);
 
 // images.forEach((elem) => {
 //   const galleryListItem = document.createElement("li");

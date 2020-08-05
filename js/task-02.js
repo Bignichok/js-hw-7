@@ -8,9 +8,11 @@ const ingredients = [
   "Приправы",
 ];
 
-ingredients.forEach((element) => {
+const createHtml = ingredients.map((element) => {
   const ingredientsListItem = document.createElement("li");
   ingredientsListItem.textContent = element;
-  ingredientsList.appendChild(ingredientsListItem);
+  return ingredientsListItem;
 });
+
+ingredientsList.append(...createHtml);
 ingredientsList.classList.add("answer");
